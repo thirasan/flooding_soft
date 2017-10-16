@@ -56,3 +56,63 @@ Scenario: Special Case
 -food_rescue(X,Y):- live_at(Z,X),is_a(Z,A), food(A,Y).
 -doctor_rescue(X,Y):- live_at(Z,X),suffer_from(Z,I),is_record_by(I, Y).
 ```
+## Example
+```prolog
+address 1
+When we want to rescue address 1
+?- rescue(add_1,Y,F,D,P).
+Y = car,
+P = third_priority
+F = food_general,
+P = third_priority
+F = food_general,
+D = doc_5,
+P = third_priority
+D = doc_2,
+P = third_priority
+
+Output: vehicle(car), priority(third_priority), food type(food_general), doc type{(doc_5), (doc_2)}
+
+address 2
+When we want to rescue address 2
+?- rescue(add_2,Y,F,D,P).
+Y = helicopter,
+P = first_priority
+F = food_baby,
+P = first_priority
+F = food_general,
+P = first_priority
+F = food_elder,
+P = first_priority
+F = food_general,
+P = first_priority
+F = doc_0,
+P = first_priority
+F = doc_3,
+P = first_priority
+F = doc_5,
+P = first_priority
+F = doc_0,
+P = first_priority
+
+Output: vehicle(helicopter, priority(first_priority), food type{(food_baby), (food_general), (food_elder)}, doc type
+	{(doc_0), (doc_3), (doc_5)}
+PS: doc_0 => not send any doctor
+
+address 3
+When we want to rescue address 3
+?- rescue(add_3,Y,F,D,P).
+Y = car,
+P = third_priority
+F = food_baby,
+P = third_priority
+F = food_pregnant,
+P = third_priority
+D = doc_0,
+P = third_priority
+D = doc_0,
+P = third_priority
+
+Output: vehicle(car), priority(third_priority), food type{(food_baby), (food_pregnant)}, doc type(doc_0)
+PS: doc_0 => not send any doctor
+```

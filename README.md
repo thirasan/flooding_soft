@@ -9,6 +9,7 @@
 * Thanawat		  Saelee			      5810545904
 * Narongsak		  Chobsri		        5810545858
 * Patipol			  Wangjaitham		    5810545432
+* chick			  chick		    6423526
 
 ## Rules
 ```prolog
